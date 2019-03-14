@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\bin\Debug\CircleMovement.exe.config
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\bin\Debug\CircleMovement.exe
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\bin\Debug\CircleMovement.pdb
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.csprojAssemblyReference.cache
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.Properties.Resources.resources
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.csproj.GenerateResource.cache
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.exe
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.pdb
+C:\Users\user\Desktop\sharp\CircleMovement\CircleMovement\obj\Debug\CircleMovement.CircleMovement.resources
