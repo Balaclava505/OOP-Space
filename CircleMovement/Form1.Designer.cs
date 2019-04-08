@@ -45,6 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Deserial = new System.Windows.Forms.Button();
+            this.Serial = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.speedPlan_UpDown = new System.Windows.Forms.DomainUpDown();
@@ -78,15 +80,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.t_NumSat = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.T_StarColor_B = new System.Windows.Forms.TextBox();
+            this.T_StarColor_G = new System.Windows.Forms.TextBox();
+            this.T_StarColor_R = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.Btn_ChangeStar = new System.Windows.Forms.Button();
             this.t_StarY = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.t_StarX = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.T_StarColor_B = new System.Windows.Forms.TextBox();
-            this.T_StarColor_G = new System.Windows.Forms.TextBox();
-            this.T_StarColor_R = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Background)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,7 +110,7 @@
             this.Background.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Background.Location = new System.Drawing.Point(-3, 2);
             this.Background.Name = "Background";
-            this.Background.Size = new System.Drawing.Size(724, 597);
+            this.Background.Size = new System.Drawing.Size(712, 597);
             this.Background.TabIndex = 2;
             this.Background.TabStop = false;
             this.Background.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -231,6 +233,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.Deserial);
+            this.groupBox3.Controls.Add(this.Serial);
             this.groupBox3.Controls.Add(this.tabControl1);
             this.groupBox3.Location = new System.Drawing.Point(727, 250);
             this.groupBox3.Name = "groupBox3";
@@ -238,6 +242,26 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Изменение";
+            // 
+            // Deserial
+            // 
+            this.Deserial.Location = new System.Drawing.Point(137, 277);
+            this.Deserial.Name = "Deserial";
+            this.Deserial.Size = new System.Drawing.Size(115, 41);
+            this.Deserial.TabIndex = 3;
+            this.Deserial.Text = "Десериализовать";
+            this.Deserial.UseVisualStyleBackColor = true;
+            this.Deserial.Click += new System.EventHandler(this.Deserial_Click);
+            // 
+            // Serial
+            // 
+            this.Serial.Location = new System.Drawing.Point(6, 277);
+            this.Serial.Name = "Serial";
+            this.Serial.Size = new System.Drawing.Size(118, 41);
+            this.Serial.TabIndex = 2;
+            this.Serial.Text = "Сериализовать";
+            this.Serial.UseVisualStyleBackColor = true;
+            this.Serial.Click += new System.EventHandler(this.Serial_Click);
             // 
             // tabControl1
             // 
@@ -249,6 +273,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(236, 229);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.TabStop = false;
             // 
             // tabPage1
             // 
@@ -563,6 +588,36 @@
             this.tabPage3.Text = "Звезда";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // T_StarColor_B
+            // 
+            this.T_StarColor_B.Location = new System.Drawing.Point(164, 48);
+            this.T_StarColor_B.Name = "T_StarColor_B";
+            this.T_StarColor_B.Size = new System.Drawing.Size(28, 20);
+            this.T_StarColor_B.TabIndex = 41;
+            // 
+            // T_StarColor_G
+            // 
+            this.T_StarColor_G.Location = new System.Drawing.Point(129, 48);
+            this.T_StarColor_G.Name = "T_StarColor_G";
+            this.T_StarColor_G.Size = new System.Drawing.Size(28, 20);
+            this.T_StarColor_G.TabIndex = 40;
+            // 
+            // T_StarColor_R
+            // 
+            this.T_StarColor_R.Location = new System.Drawing.Point(92, 48);
+            this.T_StarColor_R.Name = "T_StarColor_R";
+            this.T_StarColor_R.Size = new System.Drawing.Size(28, 20);
+            this.T_StarColor_R.TabIndex = 39;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(29, 48);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(56, 13);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Цвет(rgb):";
+            // 
             // Btn_ChangeStar
             // 
             this.Btn_ChangeStar.Location = new System.Drawing.Point(81, 166);
@@ -604,36 +659,6 @@
             this.label14.Size = new System.Drawing.Size(17, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "X:";
-            // 
-            // T_StarColor_B
-            // 
-            this.T_StarColor_B.Location = new System.Drawing.Point(164, 48);
-            this.T_StarColor_B.Name = "T_StarColor_B";
-            this.T_StarColor_B.Size = new System.Drawing.Size(28, 20);
-            this.T_StarColor_B.TabIndex = 41;
-            // 
-            // T_StarColor_G
-            // 
-            this.T_StarColor_G.Location = new System.Drawing.Point(129, 48);
-            this.T_StarColor_G.Name = "T_StarColor_G";
-            this.T_StarColor_G.Size = new System.Drawing.Size(28, 20);
-            this.T_StarColor_G.TabIndex = 40;
-            // 
-            // T_StarColor_R
-            // 
-            this.T_StarColor_R.Location = new System.Drawing.Point(92, 48);
-            this.T_StarColor_R.Name = "T_StarColor_R";
-            this.T_StarColor_R.Size = new System.Drawing.Size(28, 20);
-            this.T_StarColor_R.TabIndex = 39;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(29, 48);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 13);
-            this.label16.TabIndex = 38;
-            this.label16.Text = "Цвет(rgb):";
             // 
             // CircleMovement
             // 
@@ -726,6 +751,8 @@
         private System.Windows.Forms.TextBox T_StarColor_G;
         private System.Windows.Forms.TextBox T_StarColor_R;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button Deserial;
+        private System.Windows.Forms.Button Serial;
     }
 }
 

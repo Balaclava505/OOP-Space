@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,6 @@ namespace CircleMovement
 {
     public partial class CircleMovement : Form
     {
-
-
         public CircleMovement()
         {
             InitializeComponent();
@@ -21,31 +20,22 @@ namespace CircleMovement
         }
 
         static Bitmap rocket_pict = new Bitmap(Properties.Resources.rocket, new Size(50, 50));
-        static Rocket rocket = new Rocket(rocket_pict);
-        static OrbitalObject orbital_obj = new OrbitalObject(rocket, 350, 350, Color.White);
-        //Satellite satellite = new Satellite(3, 150, 150, 3, 30, 1);
-        //Planet planet = new Planet(10, 100, 50, 0, 150, 1, satellite);
-        Star star = new Star(30, 300, 300, Color.Yellow);
-        //Planet planet;
-        //private static Satellite satellite;
-        Planet planet = new Planet(0, 0, 0, 0, orbital_obj.RandomColor(), 0, 0,0);
-        Satellite satellite = new Satellite(0,0, 0, 0, orbital_obj.RandomColor(), 0, 0, 0,0);
-        
+        static Rocket rocket = new Rocket(rocket_pict,200,200);
+        static OrbitalObject orbital_obj = new OrbitalObject();
 
-        public List<Planet> planets = new List<Planet>();
-        public List<Satellite> satellites = new List<Satellite>();
+        Star star = new Star(rocket, 30, 300, 300, Color.Yellow, 3);
+        //Star star_rock = new Star(rocket);
+
+        Planet planet = new Planet();
+        Satellite satellite = new Satellite();
 
         Timer time = new Timer();
         EventHandler handler;
         int numOfPlanets = 0;
 
         public void Initialize()
-        {
-            //planets.Add(planet);
-            //satellites.Add(satellite);
-            star.CreateSystem(out planets, out satellites);
-            //planet.CreateRandPlanet(numOfPlanets, 1, planets, satellites, satellite);
-           // numOfPlanets++; //одна инициализирована заранее
+        { 
+            star.CreateSystem();
 
             time.Interval = 30;
             time.Enabled = true;
@@ -53,7 +43,7 @@ namespace CircleMovement
 
             handler = (x, y) => 
             {
-                planet.Move(planets, satellites, star);
+                orbital_obj.Move(star.planets, star.satellites, star);
                 
             }; 
 
@@ -62,7 +52,7 @@ namespace CircleMovement
 
             Background.Paint += (sender, e) =>
             {
-                Paint(sender, e, planets, satellites, orbital_obj);
+                Paint(sender, e, star.planets, star.satellites);
             };
 
         }
@@ -79,7 +69,7 @@ namespace CircleMovement
 
         }
 
-        private new void Paint(object sender, PaintEventArgs e, List<Planet> planets, List<Satellite> satellites, OrbitalObject orb)
+        private new void Paint(object sender, PaintEventArgs e, List<Planet> planets, List<Satellite> satellites)
         {
             Graphics g = e.Graphics;
             star.Shine(g);
@@ -95,34 +85,23 @@ namespace CircleMovement
                         g.FillEllipse(new SolidBrush(satellite.ColorObj), (int)satellite.X, (int)satellite.Y, (float)(2 * satellite.Radius), (float)(2 * satellite.Radius));
                 }
             }
-            g.DrawImage(orb.rocket.Img, (float)orb.X, (float)orb.Y);
+            g.DrawImage(star.rocket.Img, (float)star.rocket.X, (float)star.rocket.Y);
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
         }
 
-
-
         private void btn_AddPlan_Click(object sender, EventArgs e)
         {
-            CountPlanets();
-            planet.InitData(numOfPlanets, 1, planets);
-        }
-
-        private int CountPlanets()
-        {
-            numOfPlanets = 0;
-            foreach (Planet planet in planets)
-                numOfPlanets++;
-            return numOfPlanets;
+            planet.InitData(++star.CountPlan, 0, star.planets);
         }
 
         public bool IsValidInput(string s,out int name)
         {
             name = 10000;
             int.TryParse(s, out name);
-            if (name <= CountPlanets())
+            if (name <= star.CountPlan)
             {
                 return true;
             }
@@ -132,7 +111,7 @@ namespace CircleMovement
         private int CountSats()
         {
             numOfPlanets = 0;
-            foreach (Satellite satellite in satellites)
+            foreach (Satellite satellite in star.satellites)
                 numOfPlanets++;
             return numOfPlanets;
         }
@@ -148,11 +127,23 @@ namespace CircleMovement
             return false;
         }
 
+        private void SearchFatherPlanet(int name)
+        {
+            foreach (Planet planet in star.planets)
+                if (planet.Name == name)
+                    planet.CountSat++;
+        }
+
         private void btn_AddSat_Click(object sender, EventArgs e)
         {
             if (IsValidInput(textBox_NamePlan1.Text, out int name))
             {
-                satellite.CreateRandSat(1, 1, satellites, name);
+                int numOfSats = 0;
+                foreach (Satellite satellite in star.satellites)
+                    if (satellite.fatherName == name)
+                        numOfSats++;
+                satellite.CreateRandSat(1, numOfSats, star.satellites, name);
+                SearchFatherPlanet(name);
             }
         }
 
@@ -160,7 +151,8 @@ namespace CircleMovement
         {
             if (IsValidInput(textBox_NamePlan2.Text, out int name))
             {
-                planet.Del(planets, name);
+                planet.Del(star.planets, name);
+                star.CountPlan--;
             }
         }
 
@@ -168,13 +160,16 @@ namespace CircleMovement
         {
             if (IsValidInput(textBox_NamePlan3.Text, out int name))
             {
-                satellite.Del(satellites, name);
+                satellite.Del(star.satellites, name);
+                foreach (Planet planet in star.planets)
+                    if (planet.Name == name)
+                        planet.CountSat--;
             }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            rocket.Fly(e, orbital_obj);
+            rocket.Fly(e, star.rocket);
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
@@ -186,7 +181,7 @@ namespace CircleMovement
         {
             if (IsValidInput(tBox_EditPlan.Text, out int name))
             {
-                foreach (Planet planet in planets)
+                foreach (Planet planet in star.planets)
                 {
                     if (planet.Name == name)
                     {
@@ -211,7 +206,7 @@ namespace CircleMovement
             int b = 0;
             if (IsValidInput(tBox_EditPlan.Text, out int name))
             {
-                foreach (Planet planet in planets)
+                foreach (Planet planet in star.planets)
                 {                    
                     if (planet.Name == name)
                     {
@@ -227,7 +222,6 @@ namespace CircleMovement
             }
         }
 
-
         private void btn_EditSat_Click(object sender, EventArgs e)
         {
             int r = 0;
@@ -235,7 +229,7 @@ namespace CircleMovement
             int b = 0;
             if ((IsValidInput(t_NumSat.Text, out int f_name)) && (IsValidInputSat(t_NumPlanOfSat.Text, out int name)))
             {
-                foreach (Satellite satellite in satellites)
+                foreach (Satellite satellite in star.satellites)
                 {
                     if ((satellite.fatherName == f_name) && (satellite.Name == name))
                     {
@@ -254,9 +248,9 @@ namespace CircleMovement
 
         private void Btn_SeeSatData_Click(object sender, EventArgs e)
         {
-            if ((IsValidInput(t_NumSat.Text, out int f_name)) && (IsValidInputSat(t_NumPlanOfSat.Text, out int name)))
+            if ((IsValidInput(t_NumPlanOfSat.Text, out int f_name)) && (IsValidInputSat(t_NumSat.Text, out int name)))
             {
-                    foreach (Satellite satellite in satellites)
+                    foreach (Satellite satellite in star.satellites)
                     {
                         if ((satellite.fatherName == f_name) && (satellite.Name == name))
                         {
@@ -286,6 +280,43 @@ namespace CircleMovement
             int.TryParse(T_StarColor_B.Text, out b);
             star.ColorObj = Color.FromArgb(r, g, b);
         }
-    }
 
+        private void Serial_Click(object sender, EventArgs e)
+        {
+            NewSerializer newSerializer = new NewSerializer();
+            time.Stop();
+
+            SaveFileDialog dlg = new SaveFileDialog
+            {
+                FileName = "World",
+                Filter = "Encoded XML file(*.xml)|*.xml|Encoded Binary data (*.bin)|*.bin|Encoded Text file(*.txt)|*.txt"
+            };
+            
+
+            bool result = dlg.ShowDialog() == DialogResult.OK;
+ 
+            if (result == true)
+            {
+               newSerializer.GetfileName_Serialization(dlg.FileName).Serialize(star, dlg.FileName);
+            }
+            time.Start();
+        }
+
+        private void Deserial_Click(object sender, EventArgs e)
+        {
+            NewSerializer newSerializer = new NewSerializer();
+            time.Stop();
+
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "Any file(xml,bin,txt or their encoded versions)|*.*";
+
+
+            bool result = dlg.ShowDialog() == DialogResult.OK;
+            if (result == true)
+            {
+                star = (Star)newSerializer.GetfileName_Serialization(dlg.FileName).Deserialize(typeof(Star), dlg.FileName);
+            }
+            time.Start();
+        }
+    }
 }
