@@ -1,0 +1,6 @@
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\RC4\bin\Debug\RC4.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\RC4\bin\Debug\RC4.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\RC4\obj\Debug\RC4.csprojAssemblyReference.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\RC4\obj\Debug\RC4.csproj.CoreCompileInputs.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\RC4\obj\Debug\RC4.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\RC4\obj\Debug\RC4.pdb

@@ -28,3 +28,20 @@ C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — к
 C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\CircleMovement\obj\Debug\CircleMovement.csproj.CoreCompileInputs.cache
 C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\CircleMovement\obj\Debug\CircleMovement.exe
 C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\CircleMovement\obj\Debug\CircleMovement.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\CircleMovement.exe.config
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\CircleMovement.exe
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\CircleMovement.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.csprojAssemblyReference.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.CircleMovement.resources
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.Properties.Resources.resources
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.csproj.GenerateResource.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.csproj.CoreCompileInputs.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.exe
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\GZipp.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\GZipp.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\obj\Debug\CircleMovement.csproj.CopyComplete
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\Zip.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\Zip.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\RC4.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\CircleMovement\bin\Debug\RC4.pdb

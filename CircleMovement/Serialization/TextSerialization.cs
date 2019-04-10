@@ -9,14 +9,8 @@ using System.Threading.Tasks;
 
 namespace CircleMovement
 {
-    class TextSerialization : ITextSerialization, ISpaceSerializer
+    class TextSerialization : ISpaceSerializer
     {
-        public void GetObjectData(SerializationInfo info,
-                                 StreamingContext context)
-        {
-            //GetObjectData(info, context);
-
-        }
 
         public object Deserialize(Type objectType, string path)
         {

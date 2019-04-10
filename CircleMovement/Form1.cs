@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CircleMovement.Compression;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -316,6 +317,114 @@ namespace CircleMovement
             {
                 star = (Star)newSerializer.GetfileName_Serialization(dlg.FileName).Deserialize(typeof(Star), dlg.FileName);
             }
+            time.Start();
+        }
+
+        private string pluginPath = "./";
+
+        private void btnCompress_Click(object sender, EventArgs e)
+        {
+            time.Stop();
+            NewSerializer newSerializer = new NewSerializer();
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.FileName = "World";
+
+            CompressionAlgs algorithms = new CompressionAlgs(pluginPath);
+            if (algorithms.objects.Count == 0)
+            {
+                MessageBox.Show("No plugins");
+                return;
+            }
+
+            AddCompressorDecorator(algorithms);
+
+            string filter = string.Empty;
+            foreach (ICompression alg in algorithms.objects)
+            {
+                filter += alg.Name + " archive (*" + alg.Format + ")|*" + alg.Format + "|";
+            }
+            dlg.Filter = filter.TrimEnd('|');
+
+            bool result = dlg.ShowDialog() == DialogResult.OK;
+            if (result == true)
+            {
+                BinarySerialization bin = new BinarySerialization();
+                XmlSerialization xml = new XmlSerialization();
+                TextSerialization text = new TextSerialization();
+
+                string ext = Path.GetExtension(dlg.FileName);
+                string name = dlg.FileName.Replace(ext, "");
+                ICompression compressor = algorithms.objects.Find(obj => obj.Format == ext);
+
+                xml.Serialize(star, name + ".xml");
+                compressor.Compress(name + ".xml", name + ".xml" + ext);
+                File.Delete(name + ".xml");
+
+                bin.Serialize(star, name + ".bin");
+                compressor.Compress(name + ".bin", name + ".bin" + ext);
+                File.Delete(name + ".bin");
+
+                text.Serialize(star, name + ".txt");
+                compressor.Compress(name + ".txt", name + ".txt" + ext);
+                File.Delete(name + ".txt");
+            }
+            time.Start();
+        }
+
+        private void AddCompressorDecorator(CompressionAlgs algorithms)
+        {
+            List<ICompression> baseCompressors = new List<ICompression>(algorithms.objects);
+            foreach (ICompression compressor in baseCompressors)
+            {
+                algorithms.objects.Add(new CipherDecorator(compressor));
+            }
+        }
+
+        private void btnDecompress_Click(object sender, EventArgs e)
+        {
+            time.Stop();
+            NewSerializer newSerializer = new NewSerializer();
+
+            CompressionAlgs algorithms = new CompressionAlgs(pluginPath);
+            if (algorithms.objects.Count == 0)
+            {
+                MessageBox.Show("No plugins");
+            }
+
+            AddCompressorDecorator(algorithms);
+
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            string filter = string.Empty;
+            foreach (ICompression alg in algorithms.objects)
+            {
+                filter += "*" + alg.Format + ";";
+            }
+            filter = filter.TrimEnd(';');
+            dlg.Filter = "Archives (" + filter + ")|" + filter;
+
+            bool result = dlg.ShowDialog() == DialogResult.OK;
+
+            if (result == true)
+            {
+                try
+                {
+                    string ext = System.IO.Path.GetExtension(dlg.FileName);
+                    string temp = dlg.FileName.Replace(ext, "");
+
+                    ICompression compressor = algorithms.objects.Find(obj => obj.Format == ext);
+                    compressor.Decompress(dlg.FileName, temp);
+
+                    star = (Star)newSerializer.GetfileName_Serialization(dlg.FileName).Deserialize(typeof(Star), temp);
+
+                    File.Delete(temp);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+
             time.Start();
         }
     }

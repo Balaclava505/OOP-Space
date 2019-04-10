@@ -45,6 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDecompress = new System.Windows.Forms.Button();
+            this.btnCompress = new System.Windows.Forms.Button();
             this.Deserial = new System.Windows.Forms.Button();
             this.Serial = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -110,7 +112,7 @@
             this.Background.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Background.Location = new System.Drawing.Point(-3, 2);
             this.Background.Name = "Background";
-            this.Background.Size = new System.Drawing.Size(712, 597);
+            this.Background.Size = new System.Drawing.Size(724, 608);
             this.Background.TabIndex = 2;
             this.Background.TabStop = false;
             this.Background.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -233,21 +235,43 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnDecompress);
+            this.groupBox3.Controls.Add(this.btnCompress);
             this.groupBox3.Controls.Add(this.Deserial);
             this.groupBox3.Controls.Add(this.Serial);
             this.groupBox3.Controls.Add(this.tabControl1);
             this.groupBox3.Location = new System.Drawing.Point(727, 250);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(260, 335);
+            this.groupBox3.Size = new System.Drawing.Size(260, 360);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Изменение";
             // 
+            // btnDecompress
+            // 
+            this.btnDecompress.Location = new System.Drawing.Point(131, 287);
+            this.btnDecompress.Name = "btnDecompress";
+            this.btnDecompress.Size = new System.Drawing.Size(115, 25);
+            this.btnDecompress.TabIndex = 5;
+            this.btnDecompress.Text = "Decompress";
+            this.btnDecompress.UseVisualStyleBackColor = true;
+            this.btnDecompress.Click += new System.EventHandler(this.btnDecompress_Click);
+            // 
+            // btnCompress
+            // 
+            this.btnCompress.Location = new System.Drawing.Point(7, 286);
+            this.btnCompress.Name = "btnCompress";
+            this.btnCompress.Size = new System.Drawing.Size(118, 26);
+            this.btnCompress.TabIndex = 4;
+            this.btnCompress.Text = "Compress";
+            this.btnCompress.UseVisualStyleBackColor = true;
+            this.btnCompress.Click += new System.EventHandler(this.btnCompress_Click);
+            // 
             // Deserial
             // 
-            this.Deserial.Location = new System.Drawing.Point(137, 277);
+            this.Deserial.Location = new System.Drawing.Point(131, 255);
             this.Deserial.Name = "Deserial";
-            this.Deserial.Size = new System.Drawing.Size(115, 41);
+            this.Deserial.Size = new System.Drawing.Size(115, 25);
             this.Deserial.TabIndex = 3;
             this.Deserial.Text = "Десериализовать";
             this.Deserial.UseVisualStyleBackColor = true;
@@ -255,9 +279,9 @@
             // 
             // Serial
             // 
-            this.Serial.Location = new System.Drawing.Point(6, 277);
+            this.Serial.Location = new System.Drawing.Point(7, 254);
             this.Serial.Name = "Serial";
-            this.Serial.Size = new System.Drawing.Size(118, 41);
+            this.Serial.Size = new System.Drawing.Size(118, 26);
             this.Serial.TabIndex = 2;
             this.Serial.Text = "Сериализовать";
             this.Serial.UseVisualStyleBackColor = true;
@@ -664,7 +688,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 597);
+            this.ClientSize = new System.Drawing.Size(991, 622);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -753,6 +777,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button Deserial;
         private System.Windows.Forms.Button Serial;
+        private System.Windows.Forms.Button btnCompress;
+        private System.Windows.Forms.Button btnDecompress;
     }
 }
 

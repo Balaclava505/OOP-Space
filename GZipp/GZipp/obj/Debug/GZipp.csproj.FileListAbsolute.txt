@@ -1,0 +1,16 @@
+C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\GZipp\GZipp\bin\Debug\GZipp.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\GZipp\GZipp\bin\Debug\GZipp.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\GZipp\GZipp\obj\Debug\GZipp.csproj.CoreCompileInputs.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\GZipp\GZipp\obj\Debug\GZipp.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\GZipp\GZipp\obj\Debug\GZipp.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\OOP-Space — копия\GZipp\GZipp\obj\Debug\GZipp.csprojAssemblyReference.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\bin\Debug\GZipp.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\bin\Debug\GZipp.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\bin\Debug\CircleMovement.exe
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\bin\Debug\CircleMovement.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\bin\Debug\CircleMovement.exe.config
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\obj\Debug\GZipp.csprojAssemblyReference.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\obj\Debug\GZipp.csproj.CoreCompileInputs.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\obj\Debug\GZipp.csproj.CopyComplete
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\obj\Debug\GZipp.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\GZipp\GZipp\obj\Debug\GZipp.pdb

@@ -1,0 +1,10 @@
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\bin\Debug\Zip.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\bin\Debug\Zip.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\bin\Debug\CircleMovement.exe
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\bin\Debug\CircleMovement.pdb
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\bin\Debug\CircleMovement.exe.config
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\obj\Debug\Zip.csprojAssemblyReference.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\obj\Debug\Zip.csproj.CoreCompileInputs.cache
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\obj\Debug\Zip.csproj.CopyComplete
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\obj\Debug\Zip.dll
+C:\Users\Edward\Desktop\sharp\Солнечная система\Sol_Syst\OOP-Space\Zip\obj\Debug\Zip.pdb
